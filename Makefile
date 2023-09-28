@@ -34,31 +34,23 @@ all: bin ${TARGETS}
 bin:
 	mkdir -p bin
 
-# Automatically generate rules
-# https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html
-bin/%: bin/%.o
-	gcc -o $@ -g -Wall $^
-
-bin/%.o: src/%.c
-	gcc -c -o $@ -g -Wall $<
-
-
 # Custom rules
-# bin/helloworld: bin/helloworld.o 
-# 	${CC} ${CFLAGS} -o bin/functionPointers bin/functionPointers.o 
+bin/main: bin/main.o  bin/functions.o
+	${CC} ${CFLAGS} -o bin/main bin/main.o  bin/functions.o
 	
-# bin/helloworld.o: src/helloworld.c
-# 	${CC} ${CFLAGS} -o bin/helloworld.o -c src/helloworld.c
+bin/main.o: src/main.c include/functions.h
+	${CC} ${CFLAGS} -o bin/main.o -c src/main.c
+
+bin/functions.o: src/functions.c include/functions.h
+	${CC} ${CFLAGS} -o bin/functions.o -c src/functions.c
 
 clean:
 	rm -rf bin/*.o ${TARGETS} bin/*.pdf
 
 printAll:
 	enscript ${ENSCRIPT_FLAGS} src/main.c  | ps2pdf - bin/main.pdf
-
+	enscript ${ENSCRIPT_FLAGS} src/functions.c  | ps2pdf - bin/functions.pdf
+	pdfunite bin/main.pdf bin/functions.pdf bin/all.pdf
+	
 valgrind: bin/main
 	valgrind ${VALGRIND_FLAGS} bin/main
-
-# https://www.gnu.org/software/make/manual/html_node/Chained-Rules.html
-# https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
-.PRECIOUS: bin/%.o
