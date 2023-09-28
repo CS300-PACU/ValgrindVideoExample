@@ -61,7 +61,7 @@ void printHello(const char *szMsg)
 
 	Returned:	 		None
 ****************************************************************************/
-void printGoodBye(const char *pLetter)
+void printGoodBye(const char *pLetter, int number)
 {
-	printf("BYE! - %c - \n", *pLetter);	
+	printf("BYE! - %c - %d - \n", *pLetter, number);	
 }

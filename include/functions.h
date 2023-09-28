@@ -12,4 +12,4 @@
 
 char *getStars(int count);
 void printHello(const char *szMsg);
-void printGoodBye(const char *pLetter);
+void printGoodBye(const char *pLetter, int count);

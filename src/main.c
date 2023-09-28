@@ -10,28 +10,29 @@
 #include <stdlib.h>
 #include "../include/functions.h"
 
- /****************************************************************************
-  Function: 	 	main
+/****************************************************************************
+Function:			main
 
-  Description: hello world!
+Description: 	hello world!
 
-  Parameters:	argc - the number of command line arguments
-               argv - the actual command line arguments
+Parameters:		argc - the number of command line arguments
+              argv - the actual command line arguments
 
-  Returned:	 	EXIT_SUCCESS
-  ****************************************************************************/
+Returned:	 		EXIT_SUCCESS
+****************************************************************************/
 int main (int argc, char* argv[]) {
   
 	char *szMsg;
-	int count;
+	int numberOfStars;
 
-	//char *pLetter;
+	//char letter = '!';
+	//char *pLetter; 
 
-	szMsg = getStars(count);
+	szMsg = getStars(numberOfStars);
 
 	printHello(szMsg);
 
-	//printGoodBye(pLetter);
+	//printGoodBye(pLetter, numberOfStars);
 
   return EXIT_SUCCESS;
 }
