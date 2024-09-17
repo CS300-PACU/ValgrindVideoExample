@@ -7,7 +7,7 @@
 # Purpose:    
 #############################################################################
 
-CC=gcc
+CC=clang
 CFLAGS=-g -Wall
 VALGRIND_FLAGS=-v --leak-check=yes --track-origins=yes --leak-check=full --show-leak-kinds=all
 ENSCRIPT_FLAGS=-C -T 2 -p - -M Letter -Ec --color -fCourier8
@@ -15,7 +15,7 @@ ENSCRIPT_FLAGS=-C -T 2 -p - -M Letter -Ec --color -fCourier8
 # -g  include debug symbols in the executable so that the code can be
 # 		run through the debugger effectively
 #
-# -Wall	show all warnings from gcc
+# -Wall	show all warnings from the compiler
 
 .PHONY: clean
 
