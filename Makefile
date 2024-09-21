@@ -7,7 +7,7 @@
 # Purpose:    
 #############################################################################
 
-CC=clang
+CC=gcc
 CFLAGS=-g -Wall
 VALGRIND_FLAGS=-v --leak-check=yes --track-origins=yes --leak-check=full --show-leak-kinds=all
 ENSCRIPT_FLAGS=-C -T 2 -p - -M Letter -Ec --color -fCourier8
